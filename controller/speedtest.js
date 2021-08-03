@@ -29,5 +29,46 @@ exec('node -p "process.arch"', function (err, data, getter) {
             console.log(data);
         });
     }
+    else if (data.trim() == "arm") {
+        url = 'https://install.speedtest.net/app/cli/ookla-speedtest-1.0.0-arm-linux.tgz'
+        exec(script(url), function (err, data, getter) {
+            if (err) {
+                console.log("Error:", err)
+                return;
+            }
+            console.log(data);
+        });
+    }
+    else if (data.trim() == 'armhf') {
+        url = 'https://install.speedtest.net/app/cli/ookla-speedtest-1.0.0-armhf-linux.tgz'
+        exec(script(url), function (err, data, getter) {
+            if (err) {
+                console.log("Error:", err)
+                return;
+            }
+            console.log(data);
+        });
+    }
+    else if (data.trim() == 'aarch64' || data.trim() == 'arm64') {
+        url = 'https://install.speedtest.net/app/cli/ookla-speedtest-1.0.0-aarch64-linux.tgz'
+        exec(script(url), function (err, data, getter) {
+            if (err) {
+                console.log("Error:", err)
+                return;
+            }
+            console.log(data);
+        });
+    }
+    else if (data.trim() == 'i386') {
+        url = 'https://install.speedtest.net/app/cli/ookla-speedtest-1.0.0-i386-linux.tgz'
+        exec(script(url), function (err, data, getter) {
+            if (err) {
+                console.log("Error:", err)
+                return;
+            }
+            console.log(data);
+        });
+    }
+
 
 });
