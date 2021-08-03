@@ -1,0 +1,33 @@
+// supported architectures
+/*
+i386
+x86_64
+armhf
+arm
+aarch64
+*/
+
+const { exec } = require('child_process')
+
+exec('node -p "process.arch"', function (err, data, getter) {
+    if (err) {
+        console.log("error", err.message);
+        return;
+    }
+
+    function script(url) {
+        return `mkdir ookla && wget -O ookla.tgz ${url}  && tar -xvf ookla.tgz -C ookla && rm ookla.tgz`
+    }
+
+    if (data.trim() == "x64" || data.trim() == "x86_64") {
+        url = 'https://install.speedtest.net/app/cli/ookla-speedtest-1.0.0-x86_64-linux.tgz'
+        exec(script(url), function (err, data, getter) {
+            if (err) {
+                console.log("Error:", err)
+                return;
+            }
+            console.log(data);
+        });
+    }
+
+});

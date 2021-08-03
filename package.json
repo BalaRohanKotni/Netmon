@@ -1,0 +1,21 @@
+{
+  "name": "network_stats-logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "testStart": "nodemon server-2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
