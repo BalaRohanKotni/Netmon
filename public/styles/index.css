@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  font-family: "Space Mono", monospace;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #141213;
+}
+
+.track {
+  stroke-width: 20;
+  stroke: #1f2125;
+  fill: none;
+  transform-origin: center;
+  transform: rotate(-235deg);
+}
+
+.progress {
+  stroke-width: 20;
+  stroke: #5793f2;
+  stroke-linecap: 90;
+  fill: none;
+  transform: rotate(-235deg);
+  transform-origin: center;
+}

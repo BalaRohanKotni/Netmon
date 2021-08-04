@@ -5,11 +5,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
     <title>Home</title>
 </head>
 
 <body>
-    This is the home page
+
+    <!-- <% avgs.forEach(function(data){ %>
+        <svg width="250" height="250">
+            <circle r="100" cx="125" cy="125" class="track"></circle>
+            <text x="105" y="190" fill="#fff">
+                <%- data %>
+            </text>
+
+            <circle r="100" cx="125" cy="125" class="progress"></circle>
+        </svg>
+        <% }); %> -->
+
+    <% let circumference=100 * 2 * Math.PI; %>
+        <% avgs.forEach(function(data){ %>
+            <svg width="250" height="250">
+
+                <circle r="100" cx="125" cy="125" class="track" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+                    stroke-dashoffset:<%- parseInt(circumference - ( 100 / 125) * circumference) %>px
+                    "></circle>
+
+                <text x="105" y="190" fill="#fff">
+                    <%- data %>
+                </text>
+
+                <circle r="100" cx="125" cy="125" class="progress" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+                    stroke-dashoffset:<%- parseInt(circumference - ( data / 125) * circumference) %>px
+                    "></circle>
+            </svg>
+            <% }); %>
+
+                <!-- <script>
+                let progressCircle = document.querySelector(".progress");
+                let radius = progressCircle.r.baseVal.value;
+                console.log(radius);
+                //circumference of a circle = 2πr;
+                let circumference = radius * 2 * Math.PI;
+                progressCircle.style.strokeDasharray = circumference;
+
+                //0 to 100
+                setProgress(80);
+
+                function setProgress(percent) {
+                    progressCircle.style.strokeDashoffset = circumference - (percent / 125) * circumference;
+                }
+            </script> -->
+
 </body>
+
 
 </html>
