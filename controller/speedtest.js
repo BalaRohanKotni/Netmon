@@ -1,6 +1,9 @@
 const installSpeedTest = require("../helpers/install_speedtest");
 const { exec } = require("child_process")
 const fs = require("fs");
+const SpeedtestResult = require("../models/speedtest_result")
+
+
 
 if (!fs.existsSync("ookla/")) {
     installSpeedTest.installOoklaSpeedTestCLI();
@@ -11,17 +14,21 @@ function processResultAndStore(json) {
     console.log(json);
     let dateObj = new Date();
 
-    let time = `${dateObj.toLocaleString('default', { month: 'long' })} ${dateObj.getDate()} ${dateObj.getFullYear()} - ${dateObj.getHours()}:${dateObj.getMinutes()}`;
+    const speedtestResult = SpeedtestResult();
 
-    let ping = json.ping;
-    let downloadBandwidth = parseInt(json.download.bandwidth) / 125000;
-    let uploadBandwidth = parseInt(json.upload.bandwidth) / 125000;
-    let isp = json.isp;
-    let isVpn = json.interface.isVpn;
-    let serverLocation = json.server.location;
-    let serverCountry = json.server.country;
-    let resultURL = json.result.url;
-    let packetLoss = json.packetLoss
+    speedtestResult.time = dateObj`${dateObj.toLocaleString('default', { month: 'long' })} ${dateObj.getDate()} ${dateObj.getFullYear()} - ${dateObj.getHours()}:${dateObj.getMinutes()}`;
+
+    speedtestResult.ping = json.ping;
+    speedtestResult.downloadBandwidth = parseInt(json.download.bandwidth) / 125000;
+    speedtestResult.uploadBandwidth = parseInt(json.upload.bandwidth) / 125000;
+    speedtestResult.isp = json.isp;
+    speedtestResult.isVpn = json.interface.isVpn;
+    speedtestResult.serverLocation = json.server.location;
+    speedtestResult.serverCountry = json.server.country;
+    speedtestResult.resultURL = json.result.url;
+    speedtestResult.packetLoss = json.packetLoss
+
+
 
 
 
