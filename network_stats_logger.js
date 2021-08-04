@@ -11,4 +11,4 @@ runProcessSaveSpeedtest();
 
 setInterval(function () {
     runProcessSaveSpeedtest();
-}, 180000);
+}, 1800000);
