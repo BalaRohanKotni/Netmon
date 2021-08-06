@@ -11,13 +11,13 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .card {
   background: #131618;
   width: calc(100vw / 4);
-  height: calc(100vh / 2);
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,16 +38,41 @@ body {
   transform: rotate(-235deg);
 }
 
-@media (max-width: 750px) {
-  .container {
-    grid-template-columns: auto auto auto;
-  }
+.card-download {
+  grid-area: card-download;
+}
+
+.card-upload {
+  grid-area: card-upload;
+}
+
+.card-latency {
+  grid-area: card-latency;
+}
+
+.card-jitter {
+  grid-area: card-jitter;
+}
+
+@media (max-width: 750px) , (max-width: 900px) {
   .card {
     width: calc(100vw / 3);
   }
+
+  .card-jitter{
+    width: 100vw;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+     'card-download card-upload card-latency'
+     'card-jitter card-jitter card-jitter';
+     /* 'card-jitter card-jitter card-jitter'; */
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 500px) , (max-width:700px) {
   .container {
     grid-template-columns: auto auto;
   }
@@ -56,7 +81,7 @@ body {
   }
 }
 
-@media (max-width: 250px) {
+@media (max-width: 250px) , (max-width:450px){
   .container {
     grid-template-columns: auto;
   }

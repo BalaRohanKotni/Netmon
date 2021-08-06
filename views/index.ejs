@@ -67,7 +67,7 @@
                         stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                         " />
                 <circle class="progress" r="100" cx="125" cy="125" style="stroke:#e76f2e; stroke-dasharray:<%-parseInt(circumference)%>px;
-                        stroke-dashoffset:<%-parseInt(circumference - ( avgJitter / 125) *
+                        stroke-dashoffset: <%-parseInt(circumference - ( avgJitter / 125) *
                         circumference) %>px
                         " />
             </svg>
@@ -75,6 +75,15 @@
         </div>
 
     </div>
+    <script>
+        let cards = document.getElementsByClassName('card');
+        console.log(cards)
+        for (card in cards) {
+            console.log(window.screen.height / 2);
+            cards[card].height = (window.screen.height / 2) + "px";
+            console.log(cards[card].style)
+        }
+    </script>
 </body>
 
 </html>
