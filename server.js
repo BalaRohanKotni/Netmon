@@ -17,20 +17,27 @@ app.get('/', async (req, res) => {
 
     let avgs = []
 
-    downloadBandwidthSum = 0
+    let downloadBandwidthSum = 0
     results.forEach(data => { downloadBandwidthSum += data.downloadBandwidth });
-    avgs.push((downloadBandwidthSum / results.length).toFixed(2));
+    let avgDownloadBandwidth = (downloadBandwidthSum / results.length).toFixed(2);
 
-    uploadBandwidthSum = 0
+    let uploadBandwidthSum = 0
     results.forEach(data => { uploadBandwidthSum += data.uploadBandwidth });
-    avgs.push((uploadBandwidthSum / results.length).toFixed(2));
+    let avgUploadBandwidth = (uploadBandwidthSum / results.length).toFixed(2);
 
-    res.render('index', { avgs: avgs })
+    let latencySum = 0;
+    results.forEach(data => { latencySum += data.latency });
+    let avgLatency = (latencySum / results.length).toFixed(1);
+
+    let jitterSum = 0;
+    results.forEach(data => { jitterSum += data.jitter });
+    let avgJitter = (jitterSum / results.length).toFixed(3);
+
+    res.render('index', { avgDownloadBandwidth: avgDownloadBandwidth, avgUploadBandwidth: avgUploadBandwidth, avgLatency: avgLatency, avgJitter: avgJitter })
 });
 
 app.get('/db', async (req, res,) => {
     const results = await SpeedtestResult.find();
-    console.log(results)
     res.json(results);
 });
 
