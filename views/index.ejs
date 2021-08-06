@@ -14,30 +14,7 @@
 
 <body>
 
-    <!-- <% let circumference=100 * 2 * Math.PI; %>
-    <% let colors=["#5793f2","#b46af1", "#f2485c" ] %>
-    <% let strs=["Download - Mbps","Upload - Mbps", "Latency - ms" ] %>
-    <% let index = 0 %> -->
-    <!-- <div class="container">
-        <% //avgs.forEach(function(data){ %>
-        <div class="card">
-            <p>Avg <%- strs[index] %></p>
-            <svg width="250" height="250">
-
-                <circle r="100" cx="125" cy="125" class="track" style="stroke-dasharray:<%-//parseInt(circumference)%>px;
-                        stroke-dashoffset:<%- //parseInt(circumference - ( 100 / 125) * circumference) %>px
-                        "></circle>
-                <circle r="100" cx="125" cy="125" class="progress" style="stroke: <%= //colors[index] %>;stroke-dasharray:<%-//parseInt(circumference)%>px;
-                        stroke-dashoffset:<%- //parseInt(circumference - ( data / 125) * circumference) %>px
-                        "></circle>
-            </svg>
-            <p><%- //data %></p>
-        </div>
-        <% //index +=1; %>
-        <% //}); %>
-    </div> -->
-
-    <%// let circumference=100 * 2 * Math.PI; %>
+    <% let circumference=100 * 2 * Math.PI; %>
 
     <div class="container">
 
@@ -98,19 +75,6 @@
         </div>
 
     </div>
-
-    <script>
-        let circularProgressBars = document.getElementsByClassName('circular-progress-bar');
-        let width = getComputedStyle(circularProgressBars[0]).width;
-        let height = getComputedStyle(circularProgressBars[0]).height;
-        console.log(height, width);
-        let tracks = document.getElementsByClassName('track');
-        console.log(tracks);
-        for (ob in tracks) {
-            console.log(tracks[ob].getAttribute('cx'));
-        }
-    </script>
-
 </body>
 
 </html>
