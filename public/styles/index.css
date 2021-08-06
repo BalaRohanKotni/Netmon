@@ -11,7 +11,10 @@ body {
 
 .container {
   display: grid;
+  height: max-content;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+  "card-download card-upload card-latency card-jitter";
 }
 
 .card {
@@ -74,7 +77,10 @@ body {
 
 @media (max-width: 500px) , (max-width:700px) {
   .container {
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: 
+    "card-download card-upload"
+    "card-latency card-jitter";
   }
   .card {
     width: calc(100vw / 2);
@@ -83,9 +89,14 @@ body {
 
 @media (max-width: 250px) , (max-width:450px){
   .container {
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "card-download"
+    "card-upload"
+    "card-latency"
+    "card-jitter";
   }
   .card {
-    width: calc(100vw / 1);
+    width: 100vw;
   }
 }
