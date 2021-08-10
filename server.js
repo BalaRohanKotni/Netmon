@@ -15,8 +15,6 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', async (req, res) => {
     const results = await SpeedtestResult.find();
 
-    let avgs = []
-
     let downloadBandwidthSum = 0
     results.forEach(data => { downloadBandwidthSum += data.downloadBandwidth });
     let avgDownloadBandwidth = (downloadBandwidthSum / results.length).toFixed(2);
@@ -33,7 +31,7 @@ app.get('/', async (req, res) => {
     results.forEach(data => { jitterSum += data.jitter });
     let avgJitter = (jitterSum / results.length).toFixed(3);
 
-    res.render('index', { avgDownloadBandwidth: avgDownloadBandwidth, avgUploadBandwidth: avgUploadBandwidth, avgLatency: avgLatency, avgJitter: avgJitter })
+    res.render('index', { avgDownloadBandwidth: avgDownloadBandwidth, avgUploadBandwidth: avgUploadBandwidth, avgLatency: avgLatency, avgJitter: avgJitter, speedtestResults: JSON.stringify(results), });
 });
 
 app.get('/db', async (req, res,) => {

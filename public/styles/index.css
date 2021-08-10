@@ -7,6 +7,9 @@
 body {
   background: black;
   color: white;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 .container {
@@ -20,7 +23,7 @@ body {
 .card {
   background: #131618;
   width: calc(100vw / 4);
-  height: 300px;
+  height: calc(100vh/2);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -99,4 +102,12 @@ body {
   .card {
     width: 100vw;
   }
+}
+
+.chartContainer{
+  margin-left: 2%;
+  align-self: start;
+  width: 90vw;
+  height:calc(90vh/2);
+
 }

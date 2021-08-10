@@ -9,6 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"
+        integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://www.chartjs.org/samples/2.9.4/utils.js"></script>
     <title>Home</title>
 </head>
 
@@ -73,16 +77,38 @@
             </svg>
             <p><%-avgJitter%></p>
         </div>
-
     </div>
+
+
+
+    <div class="chartContainer">
+        <canvas id="chart"></canvas>
+    </div>
+
     <script>
-        let cards = document.getElementsByClassName('card');
-        console.log(cards)
-        for (card in cards) {
-            console.log(window.screen.height / 2);
-            cards[card].height = (window.screen.height / 2) + "px";
-            console.log(cards[card].style)
-        }
+        let uploads = JSON.parse('<%-speedtestResults%>');
+
+        const CHART = document.getElementById("chart").getContext("2d");
+
+        const labels = ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug"]
+
+        let lineChart = new Chart(CHART, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    tension: 0.1,
+                    label: 'My First Dataset',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    borderColor: 'white',
+                    pointBorderWidth: 10,
+                    pointHitRadius: 10,
+                    pointHoverBorderWidth: 4,
+                    pointHoverHitRadius: 4,
+                }, ]
+            },
+        });
     </script>
 </body>
 
