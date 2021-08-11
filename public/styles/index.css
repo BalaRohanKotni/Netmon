@@ -106,5 +106,5 @@ body {
 
 .chartContainer{
   width: 97vw;
-
+  height: calc(100vh/2);
 }
