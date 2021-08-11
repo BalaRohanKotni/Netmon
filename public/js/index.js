@@ -7,9 +7,11 @@ let downloadData = [];
 let uploadData = [];
 
 results.forEach(function (result) {
-    downloadData.push(result.downloadBandwidth);
-    uploadData.push(result.uploadBandwidth);
-    labelsTime.push(result.time);
+    if (new Date().tolo) {
+        downloadData.push(result.downloadBandwidth);
+        uploadData.push(result.uploadBandwidth);
+        labelsTime.push(result.time);
+    }
 });
 
 labelsTime = labelsTime.slice(-24);
@@ -39,9 +41,10 @@ let barChart = new Chart(CHART,
             ],
         },
         options: {
+            color: "#fff",
             maintainAspectRatio: false,
         },
-    },
+    }
 );
 
 // let lineChart = new Chart(CHART, {
