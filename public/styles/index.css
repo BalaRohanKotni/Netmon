@@ -105,9 +105,6 @@ body {
 }
 
 .chartContainer{
-  margin-left: 2%;
-  align-self: start;
-  width: 90vw;
-  height:calc(90vh/2);
+  width: 97vw;
 
 }
