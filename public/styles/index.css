@@ -23,7 +23,7 @@ body {
 .card {
   background: #131618;
   width: calc(100vw / 4);
-  height: calc(100vh/2);
+  height: calc(100vh/2)-1%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,6 +105,5 @@ body {
 }
 
 .chartContainer{
-  width: 97vw;
   height: calc(100vh/2);
 }

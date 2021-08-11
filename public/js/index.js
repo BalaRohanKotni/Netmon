@@ -1,5 +1,7 @@
 const CHART = document.getElementById("chart").getContext("2d");
 
+console.log(Chart.defaults)
+
 let labelsTime = [];
 let downloadData = [];
 let uploadData = [];
@@ -15,6 +17,8 @@ downloadData = downloadData.slice(-24);
 uploadData = uploadData.slice(-24);
 
 console.log(labelsTime.length);
+
+Chart.defaults.scale.ticks.beginAtZero = true;
 
 let barChart = new Chart(CHART,
     {
@@ -34,7 +38,10 @@ let barChart = new Chart(CHART,
                 }
             ],
         },
-    }
+        options: {
+            maintainAspectRatio: false,
+        },
+    },
 );
 
 // let lineChart = new Chart(CHART, {
