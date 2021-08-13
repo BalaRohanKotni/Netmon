@@ -1,28 +1,42 @@
 const CHART = document.getElementById("chart").getContext("2d");
 
-console.log(Chart.defaults)
-
 let labelsTime = [];
 let downloadData = [];
 let uploadData = [];
 
 results.forEach(function (result) {
-    if (new Date().tolo) {
-        downloadData.push(result.downloadBandwidth);
-        uploadData.push(result.uploadBandwidth);
-        labelsTime.push(result.time);
-    }
+
+    downloadData.push(result.downloadBandwidth);
+    uploadData.push(result.uploadBandwidth);
+    labelsTime.push(result.time);
+    console.log(result.time)
 });
 
-labelsTime = labelsTime.slice(-24);
-downloadData = downloadData.slice(-24);
-uploadData = uploadData.slice(-24);
+function goBackOneDay(date) {
+    let monthDayNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-console.log(labelsTime.length);
+    let month = parseInt(date.split(' - ')[0].split(' ')[0]);
+    let day = parseInt(date.split(' - ')[0].split(' ')[1]);
+    let year = date.split(' - ')[0].split(' ')[2];
+
+    let hour = date.split(' - ')[1].split(':')[0];
+    let min = date.split(' - ')[1].split(':')[1];
+
+    if (day != 1) {
+        return `${month} ${day - 1} ${year} - ${hour}:${min}`
+    }
+    else if (day == 1 && month != 1) {
+        return `${month - 1} ${monthDayNum[month - 2]} ${year} - ${hour}:${min}`
+    }
+    else if (day == 1 && month == 1) {
+        return `12 ${monthDayNum[12 - 1]} ${year - 1} - ${hour}:${min}`
+    }
+}
+
 
 Chart.defaults.scale.ticks.beginAtZero = true;
-
 let barChart = new Chart(CHART,
+
     {
         type: "bar",
         data: {
@@ -46,34 +60,3 @@ let barChart = new Chart(CHART,
         },
     }
 );
-
-// let lineChart = new Chart(CHART, {
-//     type: 'line',
-//     data: {
-//         labels: labelsTime,
-//         datasets: [{
-//             tension: 0.1,
-//             label: 'Download Bandwidth',
-//             data: downloadData,
-//             fill: true,
-//             borderWidth: 2,
-//             backgroundColor: 'rgba(31, 168, 231, 0.3)',
-//             borderColor: '#1fa8e7',
-//             pointBorderWidth: 1,
-//             pointHitRadius: 1,
-//             pointHoverBorderWidth: 1,
-//             pointHoverHitRadius: 1,
-//         }, {
-//             tension: 0.1,
-//             label: 'Upload Bandwidth',
-//             data: uploadData,
-//             fill: true,
-//             borderColor: '#bd71ff',
-//             backgroundColor: 'rgba(189, 113, 255, 0.4)',
-//             pointBorderWidth: 1,
-//             pointHitRadius: 1,
-//             pointHoverBorderWidth: 1,
-//             pointHoverHitRadius: 1,
-//         },]
-//     },
-// });
