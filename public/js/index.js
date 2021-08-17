@@ -3,16 +3,6 @@
 const CHART = document.getElementById("chart").getContext("2d");
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-let labelsTime = [];
-let downloadData = [];
-let uploadData = [];
-
-results.forEach(function (result) {
-
-    downloadData.push(result.downloadBandwidth);
-    uploadData.push(result.uploadBandwidth);
-    labelsTime.push(result.time);
-});
 
 // function getNumByMonthName(month) {
 //     return MONTHS.indexOf(month.substr(0, 3)) + 1;
@@ -100,6 +90,18 @@ for (let i = results.length - 1; i > 0; i--) {
 }
 
 console.log(last24hrsResults);
+
+let labelsTime = [];
+let downloadData = [];
+let uploadData = [];
+
+for (let i = last24hrsResults.length - 1; i >= 0; i--) {
+    let result = last24hrsResults[i];
+    downloadData.push(result.downloadBandwidth);
+    uploadData.push(result.uploadBandwidth);
+    let onlyTime = result.time.split(' - ')[1];
+    labelsTime.push(onlyTime);
+}
 
 Chart.defaults.scale.ticks.beginAtZero = true;
 let barChart = new Chart(CHART,
