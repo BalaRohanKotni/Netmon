@@ -12,11 +12,27 @@ body {
   overflow-x: hidden;
 }
 
-
-.avgContainer{
-  background-color: rgb(9, 22, 36);
-
+h1, h2{
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
+
+section{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.pageContainer{
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y;
+  
+}
+
 .avgCardContainer {
   display: grid;
   height: max-content;
@@ -112,5 +128,6 @@ body {
 .chartContainer{
   padding: 2%;
   background-color: rgb(32, 32, 32);
-  height: calc(100vh/2.2);
+  height: 80vh;
+  width: 95vw;
 }
