@@ -8,11 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/styles/index.css">
+
+    <!-- Load Chart.js to display bar charts. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"
         integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://www.chartjs.org/samples/2.9.4/utils.js"></script>
+
     <title>Home</title>
 </head>
 
@@ -20,68 +24,74 @@
 
     <% let circumference=100 * 2 * Math.PI; %>
 
-    <div class="container">
+    <center>
+        <h1>Over View</h1>
+    </center>
 
-        <div class="card card-download">
-            <p>Download - Mbps</p>
-            <svg class="circular-progress-bar">
-                <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+    <div class="avgContainer">
+        <center class="title">Average</center>
+        <div class="avgCardContainer">
+            <div class="card card-download">
+                <p>Download - Mbps</p>
+                <svg class="circular-progress-bar">
+                    <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
                         stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                         " />
-                <circle class="progress" r="100" cx="125" cy="125" style="stroke:#1fa8e7; stroke-dasharray:<%-parseInt(circumference)%>px;
+                    <circle class="progress" r="100" cx="125" cy="125" style="stroke:#1fa8e7; stroke-dasharray:<%-parseInt(circumference)%>px;
                         stroke-dashoffset:<%-parseInt(circumference - ( avgDownloadBandwidth / 125) *
                         circumference) %>px
                         " />
-            </svg>
-            <p><%-avgDownloadBandwidth%></p>
-        </div>
+                </svg>
+                <p><%-avgDownloadBandwidth%></p>
+            </div>
 
-        <div class="card card-upload">
-            <p>Upload - Mbps</p>
-            <svg class="circular-progress-bar">
-                <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+            <div class="card card-upload">
+                <p>Upload - Mbps</p>
+                <svg class="circular-progress-bar">
+                    <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
                         stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                         " />
-                <circle class="progress" r="100" cx="125" cy="125" style="stroke:#bd71ff; stroke-dasharray:<%-parseInt(circumference)%>px;
+                    <circle class="progress" r="100" cx="125" cy="125" style="stroke:#bd71ff; stroke-dasharray:<%-parseInt(circumference)%>px;
                         stroke-dashoffset:<%-parseInt(circumference - ( avgUploadBandwidth / 125) *
                         circumference) %>px
                         " />
-            </svg>
-            <p><%-avgUploadBandwidth%></p>
-        </div>
+                </svg>
+                <p><%-avgUploadBandwidth%></p>
+            </div>
 
-        <div class="card card-latency">
-            <p>Latency - ms</p>
-            <svg class="circular-progress-bar">
-                <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+            <div class="card card-latency">
+                <p>Latency - ms</p>
+                <svg class="circular-progress-bar">
+                    <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
                         stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                         " />
-                <circle class="progress" r="100" cx="125" cy="125" style="stroke:#f2485c; stroke-dasharray:<%-parseInt(circumference)%>px;
+                    <circle class="progress" r="100" cx="125" cy="125" style="stroke:#f2485c; stroke-dasharray:<%-parseInt(circumference)%>px;
                         stroke-dashoffset:<%-parseInt(circumference - ( avgLatency / 125) *
                         circumference) %>px
                         " />
-            </svg>
-            <p><%-avgLatency%></p>
-        </div>
+                </svg>
+                <p><%-avgLatency%></p>
+            </div>
 
-        <div class="card card-jitter">
-            <p>Jitter</p>
-            <svg class="circular-progress-bar">
-                <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+            <div class="card card-jitter">
+                <p>Jitter</p>
+                <svg class="circular-progress-bar">
+                    <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
                         stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                         " />
-                <circle class="progress" r="100" cx="125" cy="125" style="stroke:#e76f2e; stroke-dasharray:<%-parseInt(circumference)%>px;
+                    <circle class="progress" r="100" cx="125" cy="125" style="stroke:#e76f2e; stroke-dasharray:<%-parseInt(circumference)%>px;
                         stroke-dashoffset: <%-parseInt(circumference - ( avgJitter / 125) *
                         circumference) %>px
                         " />
-            </svg>
-            <p><%-avgJitter%></p>
+                </svg>
+                <p><%-avgJitter%></p>
+            </div>
         </div>
     </div>
 
 
     <div class="chartContainer">
-        Total speedtestResults over last 24 hours
+        Latest 50 Speedtest results
         <canvas id="chart"></canvas>
     </div>
 

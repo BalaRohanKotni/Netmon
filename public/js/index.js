@@ -1,15 +1,12 @@
-// results is declared in index.ejs
+// variable: results  is declared in index.ejs
 
-const CHART = document.getElementById("chart").getContext("2d");
+// const CHART = document.getElementById("chart").getContext("2d");
+const CHART = document.getElementById("chart")
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 
-// function getNumByMonthName(month) {
-//     return MONTHS.indexOf(month.substr(0, 3)) + 1;
-// }
-
 function getObjByDate(date) {
-    // Aug 12 2021 - 12:3
+    // Test Case: date = Aug 12 2021 - 12:3
     let month = date.split(' - ')[0].split(' ')[0].substr(0, 3);
     let day = date.split(' - ')[0].split(' ')[1];
     let year = date.split(' - ')[0].split(' ')[2];
@@ -48,59 +45,28 @@ function goBackOneDay(date) {
     }
 }
 
-console.log("Total Speedtests:", results.length);
+let latest50results = results.slice(-50).reverse()
 
-let last24hrsResults = [];
-
-let currDate = new Date();
-let currMonth = currDate.getMonth() + 1;//added 1, cuz: if the month is aug then it returns 7(+1)=8
-let currDay = currDate.getDate();
-let currYear = currDate.getFullYear();
-let currHours = currDate.getHours()
-let currMins = currDate.getMinutes();
-
-let startDate = getObjByDate(goBackOneDay(`${MONTHS[currMonth - 1]} ${currDay} ${currYear} - ${currHours}:${currMins}`));
-let startMonth = startDate.month;
-let startDay = startDate.day;
-let startYear = startDate.year;
-let startHours = startDate.hours;
-let startMins = startDate.mins;
-console.log(currHours, startDate);
-
-for (let i = results.length - 1; i > 0; i--) {
-
-    let date = getObjByDate(results[i].time);
-    let month = date.month;
-    let day = date.day;
-    let year = date.year;
-    let hours = date.hours;
-    let mins = date.mins;
-
-
-    // console.log({ startMonth, month, currMonth }, { startYear, year, currYear }, { startDay, day, currDay }, { startHours, hours, currHours }, { startMins, mins, currMins });
-
-    if (startHours <= hours <= currHours && startMins <= mins <= currMins) {
-
-        if (startMonth <= month <= currMonth && (startDay == day || currDay == day) && startYear <= year <= currYear) {
-            // console.log(results[i]);
-            last24hrsResults.push(results[i]);
-        }
-    }
-
-}
-
-console.log(last24hrsResults);
+console.log(results.length);
 
 let labelsTime = [];
 let downloadData = [];
 let uploadData = [];
+let urls = [];
 
-for (let i = last24hrsResults.length - 1; i >= 0; i--) {
-    let result = last24hrsResults[i];
+// iterate the list latest50results backwards to be efficient
+for (let i = latest50results.length - 1; i >= 0; i--) {
+
+    let result = latest50results[i];
+
     downloadData.push(result.downloadBandwidth);
     uploadData.push(result.uploadBandwidth);
+
+    // from dateTime remove date and get only time, eg: Aug 12 2021 - 20:12 = 20:12
     let onlyTime = result.time.split(' - ')[1];
     labelsTime.push(onlyTime);
+
+    urls.push(result.resultURL);
 }
 
 Chart.defaults.scale.ticks.beginAtZero = true;
@@ -123,9 +89,18 @@ let barChart = new Chart(CHART,
                 }
             ],
         },
+        events: ['click'],
         options: {
             color: "#fff",
             maintainAspectRatio: false,
         },
     }
 );
+
+function barChartClickHandler(click) {
+    const points = barChart.getElementsAtEventForMode(click, 'nearest', { intersect: true }, true);
+    console.log(urls[points[0].index]);
+    window.open(urls[points[0].index]);
+}
+
+CHART.onclick = barChartClickHandler;
