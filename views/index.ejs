@@ -37,57 +37,57 @@
                     <div class="card card-download">
                         <p>Download - Mbps</p>
                         <svg class="circular-progress-bar">
-                            <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+                            <circle class="track" r="40%" cx="50%" cy="50%" style="stroke-dasharray:<%-parseInt(circumference)%>px;
                             stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                             " />
-                            <circle class="progress" r="100" cx="125" cy="125" style="stroke:#1fa8e7; stroke-dasharray:<%-parseInt(circumference)%>px;
+                            <circle class="progress" r="40%" cx="50%" cy="50%" style="stroke:#1fa8e7; stroke-dasharray:<%-parseInt(circumference)%>px;
                             stroke-dashoffset:<%-parseInt(circumference - ( avgDownloadBandwidth / 125) *
                             circumference) %>px
                             " />
+                            <text x="105" y="150" style="fill: white;"><%-avgDownloadBandwidth%></text>
                         </svg>
-                        <p><%-avgDownloadBandwidth%></p>
                     </div>
 
                     <div class="card card-upload">
                         <p>Upload - Mbps</p>
                         <svg class="circular-progress-bar">
-                            <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+                            <circle class="track" r="40%" cx="50%" cy="50%" style="stroke-dasharray:<%-parseInt(circumference)%>px;
                             stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                             " />
-                            <circle class="progress" r="100" cx="125" cy="125" style="stroke:#bd71ff; stroke-dasharray:<%-parseInt(circumference)%>px;
+                            <circle class="progress" r="40%" cx="50%" cy="50%" style="stroke:#bd71ff; stroke-dasharray:<%-parseInt(circumference)%>px;
                             stroke-dashoffset:<%-parseInt(circumference - ( avgUploadBandwidth / 125) *
                             circumference) %>px
                             " />
+                            <text x="105" y="150" style="fill: white;"><%-avgUploadBandwidth%></text>
                         </svg>
-                        <p><%-avgUploadBandwidth%></p>
                     </div>
 
                     <div class="card card-latency">
                         <p>Latency - ms</p>
                         <svg class="circular-progress-bar">
-                            <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+                            <circle class="track" r="40%" cx="50%" cy="50%" style="stroke-dasharray:<%-parseInt(circumference)%>px;
                             stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                             " />
-                            <circle class="progress" r="100" cx="125" cy="125" style="stroke:#f2485c; stroke-dasharray:<%-parseInt(circumference)%>px;
+                            <circle class="progress" r="40%" cx="50%" cy="50%" style="stroke:#f2485c; stroke-dasharray:<%-parseInt(circumference)%>px;
                             stroke-dashoffset:<%-parseInt(circumference - ( avgLatency / 125) *
                             circumference) %>px
                             " />
+                            <text x="105" y="150" style="fill: white;"><%-avgLatency%></text>
                         </svg>
-                        <p><%-avgLatency%></p>
                     </div>
 
                     <div class="card card-jitter">
                         <p>Jitter</p>
                         <svg class="circular-progress-bar">
-                            <circle class="track" r="100" cx="125" cy="125" style="stroke-dasharray:<%-parseInt(circumference)%>px;
+                            <circle class="track" r="40%" cx="50%" cy="50%" style="stroke-dasharray:<%-parseInt(circumference)%>px;
                             stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                             " />
-                            <circle class="progress" r="100" cx="125" cy="125" style="stroke:#e76f2e; stroke-dasharray:<%-parseInt(circumference)%>px;
+                            <circle class="progress" r="40%" cx="50%" cy="50%" style="stroke:#e76f2e; stroke-dasharray:<%-parseInt(circumference)%>px;
                             stroke-dashoffset: <%-parseInt(circumference - ( avgJitter / 125) *
                             circumference) %>px
                             " />
+                            <text x="105" y="150" style="fill: white;"><%-avgJitter%></text>
                         </svg>
-                        <p><%-avgJitter%></p>
                     </div>
 
                 </div>
