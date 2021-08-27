@@ -1,6 +1,5 @@
 // variable: results  is declared in index.ejs
 
-// const CHART = document.getElementById("chart").getContext("2d");
 const CHART = document.getElementById("chart")
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 

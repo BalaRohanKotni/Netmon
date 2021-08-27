@@ -15,28 +15,36 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', async (req, res) => {
     const results = await SpeedtestResult.find();
 
+    // get avg
     let downloadBandwidthSum = 0
     results.forEach(data => { downloadBandwidthSum += data.downloadBandwidth });
     let avgDownloadBandwidth = (downloadBandwidthSum / results.length).toFixed(2);
 
+    // get avg
     let uploadBandwidthSum = 0
     results.forEach(data => { uploadBandwidthSum += data.uploadBandwidth });
     let avgUploadBandwidth = (uploadBandwidthSum / results.length).toFixed(2);
 
+    // get avg
     let latencySum = 0;
     results.forEach(data => { latencySum += data.latency });
     let avgLatency = (latencySum / results.length).toFixed(1);
 
+    // get avg
     let jitterSum = 0;
     results.forEach(data => { jitterSum += data.jitter });
     let avgJitter = (jitterSum / results.length).toFixed(3);
 
-    res.render('index', { avgDownloadBandwidth: avgDownloadBandwidth, avgUploadBandwidth: avgUploadBandwidth, avgLatency: avgLatency, avgJitter: avgJitter, speedtestResults: JSON.stringify(results), });
+    res.render('pages/index', { avgDownloadBandwidth: avgDownloadBandwidth, avgUploadBandwidth: avgUploadBandwidth, avgLatency: avgLatency, avgJitter: avgJitter, speedtestResults: JSON.stringify(results), });
 });
 
 app.get('/db', async (req, res,) => {
     const results = await SpeedtestResult.find();
     res.json(results);
+});
+
+app.get('/allResults', async (req, res) => {
+    // res.render("");
 });
 
 app.listen(5000)

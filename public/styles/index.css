@@ -30,15 +30,18 @@ section{
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-snap-type: y mandatory;
-  
+  display: flex; 
 }
 
+
 .avgCardContainer {
+  width: 100vw;
   display: grid;
   height: max-content;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: 
   "card-download card-upload card-latency card-jitter";
+ 
 }
 
 .card {

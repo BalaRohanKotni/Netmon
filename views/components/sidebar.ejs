@@ -1,0 +1,59 @@
+<style>
+    h2 {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .wrapper {
+        height: 100vh;
+        width: 25vw;
+        display: flex;
+        flex-direction: column;
+        background-color: #845ec2;
+        position: fixed;
+    }
+
+    .navbar-list {
+        list-style: none;
+        display: relative;
+    }
+
+    .navbar-list li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 5rem;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0);
+        transition: background-color 0.2s;
+    }
+
+    .navbar-list li:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .navbar-list li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .navbar-list li:last-child {
+        position: absolute;
+        bottom: 1rem;
+    }
+</style>
+<div class="wrapper">
+
+    <center>
+        <h2>Network Stats</h2>
+    </center>
+
+    <ul class="navbar-list">
+        <li> <a href="#"> Overview</a> </li>
+        <li> <a href="#"> All Logs</a> </li>
+        <li> <a href="#"> About</a> </li>
+    </ul>
+
+</div>
