@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 22vw;
+    position: fixed;
+    z-index: 10;
+}
