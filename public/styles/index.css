@@ -7,14 +7,13 @@
 body {
   background: rgb(32, 32, 32);
   color: white;
-  display: flex;
-  flex-direction: row;
   overflow-x: hidden;
 }
 
 .sidebar {
   height: 100vh;
   width: 22vw;
+  position: fixed;
 }
 
 h1, h2 {
@@ -22,16 +21,17 @@ h1, h2 {
   margin-bottom: 1%;
 }
 
-section {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.avgContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .avgCardContainer {
+  height: 100vh;
   width: calc(100vw - 5rem);
-  /* width: 100vw; */
+  margin-left: 5rem;
   display: grid;
   height: max-content;
   grid-template-columns: repeat(4, 1fr);
@@ -80,7 +80,7 @@ section {
 
 @media (max-width: 750px), (max-width: 1080px) {
   .card {
-    width: calc(100vw / 3) - 1.25rem;
+    width: calc(100vw / 3 - 2.25rem);
   }
   .card-jitter {
     width: 100vw;
@@ -118,11 +118,15 @@ section {
     width: 100vw;
     scroll-snap-align: center;
   }
+  .sidebar {
+    /* position: relative; */
+    bottom: 0;
+  }
 }
 
-.chartContainer {
+/* .chartContainer {
   padding: 2%;
   background-color: rgb(32, 32, 32);
   height: 80vh;
   width: 95vw;
-}
+} */

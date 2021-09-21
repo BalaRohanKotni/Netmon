@@ -1,64 +1,3 @@
-<!-- <style>
-    h3 {
-        padding: 2rem;
-        margin: 1rem;
-    }
-
-    .wrapper {
-        height: 100vh;
-        width: 22vw;
-        display: flex;
-        flex-direction: column;
-        background-color: #845ec2;
-        position: fixed;
-    }
-
-    .navbar-list {
-        list-style: none;
-        display: relative;
-    }
-
-    .navbar-list li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 5rem;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0);
-        transition: background-color 0.2s;
-    }
-
-    .navbar-list li:hover {
-        background-color: rgba(255, 255, 255, 0.3);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-
-    .navbar-list li a {
-        text-decoration: none;
-        color: white;
-        font-size: 1.1rem;
-    }
-
-    .navbar-list li:last-child {
-        position: absolute;
-        bottom: 1rem;
-    }
-</style>
-<div class="wrapper">
-
-    <center>
-        <h3>Network Stats</h3>
-    </center>
-
-    <ul class="navbar-list">
-        <li> <a href="#">Average</a> </li>
-        <li> <a href="#">Graph</a> </li>
-        <li> <a href="#">All Logs</a> </li>
-        <li> <a href="#">About</a> </li>
-    </ul>
-
-</div> -->
-
 <style>
     .wrapper {
         height: 100vh;
@@ -153,13 +92,47 @@
         transform: rotate(-180deg);
     }
 
-    @media (max-width: 580px) {
+    @media (max-width: 250px),
+    (max-width:580px) {
         .navbar {
+            height: 5rem;
+            width: 100%;
             bottom: 0;
+            transition: none;
         }
 
-        .wrapper {
-            position: absolute;
+        .navbar-nav {
+            flex-direction: row;
+            height: 100%;
+            width: 100%;
+        }
+
+        .navbar:hover {
+            width: 100%;
+            height: 5rem;
+        }
+
+        .logo {
+            display: none;
+        }
+
+        .nav-link {
+            height: 100%;
+            justify-content: center;
+        }
+
+        .navbar:hover .link-text {
+            display: none;
+        }
+
+        .nav-item {
+            width: calculate(100%/4);
+            height: 100%;
+            margin: 0;
+        }
+
+        .nav-item:last-child {
+            margin-top: 0;
         }
     }
 </style>
