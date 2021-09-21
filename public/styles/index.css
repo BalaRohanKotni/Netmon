@@ -38,6 +38,10 @@ h1, h2 {
   grid-template-areas: "card-download card-upload card-latency card-jitter";
 }
 
+.sidebar {
+  z-index: 10;
+}
+
 .card {
   /* background: #131618; */
   width: calc(100vw / 4)-1rem;
@@ -113,14 +117,11 @@ h1, h2 {
     flex-direction: row;
     height: 300px;
     width: 100vw;
+    margin: 0;
   }
   .card {
     width: 100vw;
     scroll-snap-align: center;
-  }
-  .sidebar {
-    /* position: relative; */
-    bottom: 0;
   }
 }
 
