@@ -14,6 +14,7 @@ body {
   height: 100vh;
   width: 22vw;
   position: fixed;
+  z-index: 10;
 }
 
 h1, h2 {
@@ -36,10 +37,6 @@ h1, h2 {
   height: max-content;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: "card-download card-upload card-latency card-jitter";
-}
-
-.sidebar {
-  z-index: 10;
 }
 
 .card {
