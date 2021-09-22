@@ -2,6 +2,7 @@
     margin: 0;
     font-family: 'Poppins', sans-serif;
     padding: 0;
+    color: white;
 }
 
 .sidebar {
@@ -9,4 +10,29 @@
     width: 22vw;
     position: fixed;
     z-index: 10;
+}
+
+.chart {
+    background-color: #202020;
+    height: 100vh;
+    margin-left: 5rem;
+}
+
+.chartContainer {
+    background-color: rgb(32, 32, 32);
+    height: 90vh;
+    width: calc(100vw - 7rem);
+    margin: 0 1rem;
+}
+
+@media (max-width: 250px), (max-width:580px) {
+    .chart {
+        margin: 0;
+        width: 100vw;
+        /* height: calc(100vh - 20rem); */
+    }
+    .chartContainer {
+        width: 100%;
+        height: calc(100vh - 7rem);
+    }
 }

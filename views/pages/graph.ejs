@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Load Chart.js to display bar charts.  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"
+        integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://www.chartjs.org/samples/2.9.4/utils.js"></script>
+
     <link rel="stylesheet" href="/styles/graph.css">
     <title>Graph</title>
 </head>
@@ -13,6 +23,21 @@
     <div class="sidebar">
         <%- include('../components/sidebar.ejs')%>
     </div>
+
+    <section class="chart">
+        <div class="chartContainer">
+            <center>
+                <h2>Latest 50 Speedtest results</h2>
+            </center>
+            <canvas id="chart"></canvas>
+        </div>
+    </section>
+
+    <script>
+        const results = JSON.parse('<%-speedtestResults%>');
+    </script>
+    <script src="/js/index.js"></script>
+
 </body>
 
 </html>

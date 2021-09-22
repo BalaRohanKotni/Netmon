@@ -35,11 +35,12 @@ app.get('/', async (req, res) => {
     results.forEach(data => { jitterSum += data.jitter });
     let avgJitter = (jitterSum / results.length).toFixed(3);
 
-    res.render('pages/avg', { avgDownloadBandwidth: avgDownloadBandwidth, avgUploadBandwidth: avgUploadBandwidth, avgLatency: avgLatency, avgJitter: avgJitter, speedtestResults: JSON.stringify(results), });
+    res.render('pages/avg', { avgDownloadBandwidth: avgDownloadBandwidth, avgUploadBandwidth: avgUploadBandwidth, avgLatency: avgLatency, avgJitter: avgJitter });
 });
 
 app.get('/graph', async (req, res) => {
-    res.render('pages/graph');
+    const results = await SpeedtestResult.find();
+    res.render('pages/graph', { speedtestResults: JSON.stringify(results) });
 });
 
 app.get('/db', async (req, res,) => {
