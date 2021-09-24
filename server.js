@@ -43,13 +43,11 @@ app.get('/graph', async (req, res) => {
     res.render('pages/graph', { speedtestResults: JSON.stringify(results) });
 });
 
+app.get('/allLogs')
+
 app.get('/db', async (req, res,) => {
     const results = await SpeedtestResult.find();
     res.json(results);
-});
-
-app.get('/allResults', async (req, res) => {
-    // res.render("");
 });
 
 app.listen(5000)
