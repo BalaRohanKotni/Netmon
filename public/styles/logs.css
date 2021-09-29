@@ -11,3 +11,17 @@
     position: fixed;
     z-index: 10;
 }
+
+.main {
+    height: 100vh;
+    width: calc(100vw - 5rem);
+    margin-left: 5rem;
+}
+
+@media (max-width: 250px), (max-width:580px) {
+    .main {
+        width: 100vw;
+        height: calc(100vh - 5rem);
+        margin-left: 0;
+    }
+}
