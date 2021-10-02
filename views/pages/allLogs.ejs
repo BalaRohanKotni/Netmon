@@ -23,16 +23,22 @@
 
     <div class="main">
         <div class="tabs">
-            <button class="tablinks">Text</button>
-            <button class="tablinks">Graph</button>
+            <button id="text-tab">Text</button>
+            <button id="graph-tab">Graph</button>
         </div>
         <div id="text" class="tabcontent">
+            text
         </div>
         <div id="graph" class="tabcontent">
+            graph
         </div>
     </div>
 
     <script src="/js/logs.js"></script>
+
+    <script>
+        document.getElementById("text-tab").click();
+    </script>
 </body>
 
 </html>

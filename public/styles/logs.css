@@ -13,9 +13,12 @@
 }
 
 .main {
+    background: rgb(32, 32, 32);
     height: 100vh;
     width: calc(100vw - 5rem);
     margin-left: 5rem;
+    position: absolute;
+    z-index: 10;
 }
 
 @media (max-width: 250px), (max-width:580px) {
@@ -24,4 +27,32 @@
         height: calc(100vh - 5rem);
         margin-left: 0;
     }
+}
+
+.tabs {
+    background-color: rgb(71, 69, 69);
+    width: calc(100vw - 5rem);
+    border-bottom: 1px rgb(71, 69, 69);
+    display: flex;
+}
+
+.tabs button {
+    border: none;
+    background: inherit;
+    font-size: 1.25em;
+    outline: none;
+    cursor: pointer;
+    padding: 1em 1.2em;
+    transition: 0.3s;
+    white-space: nowrap;
+    ;
+}
+
+.tabs button:hover {
+    margin: 0;
+    background-color: rgb(65, 65, 65);
+}
+
+.tabs button.active {
+    background-color: rgb(54, 51, 51);
 }
