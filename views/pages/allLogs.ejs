@@ -21,23 +21,39 @@
         const results = JSON.parse('<%-speedtestResults%>');
     </script>
 
+    <% const results = JSON.parse(speedtestResults); %>
+
+
     <div class="main">
         <div class="tabs">
-            <button id="text-tab">Text</button>
+            <button id="logs-tab">Logs</button>
             <button id="graph-tab">Graph</button>
         </div>
-        <div id="text" class="tabcontent">
-            text
+        <div id="logs" class="tabcontent">
+            <% results.forEach(result =>{ %>
+            <div class="log">
+                <div class="log-timestamp">
+                    <%- new Date(result.createdAt).toLocaleString('en', {month: "short", weekday: "long",day: "2-digit", year: "numeric", hour: "numeric", minute: "numeric"}) %>
+                </div>
+                <div class="log-download">Download: <%- result.downloadBandwidth %> </div>
+                <div class="log-upload">Upload: <%- result.uploadBandwidth %> </div>
+                <div class="log-latency"></div>
+                <div class="log-jitter"></div>
+                <div class="log-url"></div>
+            </div>
         </div>
-        <div id="graph" class="tabcontent">
-            graph
-        </div>
+    </div>
+    <% }) %>
+    </div>
+    <div id="graph" class="tabcontent">
+        graph
+    </div>
     </div>
 
     <script src="/js/logs.js"></script>
 
     <script>
-        document.getElementById("text-tab").click();
+        document.getElementById("logs-tab").click();
     </script>
 </body>
 

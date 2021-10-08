@@ -12,7 +12,8 @@ const SpeedtestResult = mongoose.Schema(
         serverLocation: { type: String, required: true },
         serverCountry: { type: String, required: true },
         resultURL: { type: String, required: true },
-    }
+    },
+    { timestamps: true }
 );
 
 module.exports = mongoose.model('SpeedtestResult', SpeedtestResult);
