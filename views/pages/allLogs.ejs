@@ -30,17 +30,19 @@
             <button id="graph-tab">Graph</button>
         </div>
         <div id="logs" class="tabcontent">
-            <ul>
+            <ul class="logs-ul">
                 <% results.forEach(result => { %>
                 <li>
                     <div class="log">
                         <div class="log-timestamp">
                             <%- new Date(result.createdAt).toLocaleString('en', {month: "short",day: "2-digit", year: "numeric", hour: "numeric", minute: "numeric"}) %>
                         </div>
-                        <div class="log-download">Down↓: <%- result.downloadBandwidth %> </div>
-                        <div class="log-upload">Up↑: <%- result.uploadBandwidth %> </div>
-                        <div class="log-latency">Latency<%- result.latency %> </div>
-                        <div class="log-jitter">Jitter<%- result.jitter %></div>
+                        <div class="log-download">Down↓: <%- result.downloadBandwidth.toFixed(2) %> Mbps</div>
+                        <div class="log-upload">
+                            <pre>     Up↑:  <%- result.uploadBandwidth.toFixed(2) %> Mbps</pre>
+                        </div>
+                        <div class="log-latency">Latency: <%- result.latency %> ms</div>
+                        <div class="log-jitter">Jitter: <%- result.jitter %></div>
                         <div class="log-url">
                             <a href="<%- result.resultURL %>">URL</a>
                         </div>

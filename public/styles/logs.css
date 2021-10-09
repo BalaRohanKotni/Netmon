@@ -15,11 +15,10 @@
 .main {
     background: rgb(32, 32, 32);
     min-height: 100vh;
-    width: calc(100vw - 5.75rem);
+    width: calc(100vw - 5rem);
     margin-left: 5rem;
     position: absolute;
     z-index: 10;
-    overflow-x: hidden;
 }
 
 @media (max-width: 250px), (max-width:580px) {
@@ -46,7 +45,6 @@
     padding: 1em 1.2em;
     transition: 0.3s;
     white-space: nowrap;
-    ;
 }
 
 .tabs button:hover {
@@ -58,9 +56,61 @@
     background-color: rgb(54, 51, 51);
 }
 
+.logs-ul {
+    height: calc(100vh - 5em);
+    width: calc(100vw - 5rem);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .log {
     height: 7rem;
-    width: calc(100vw - 7.75rem);
+    /* width: calc(100vw - 7.75rem); */
     margin: 1rem;
     background-color: rgb(52, 52, 52);
+    position: relative;
+}
+
+.log-timestamp {
+    margin-top: 1%;
+    margin-left: 10%;
+    position: absolute;
+}
+
+.log-url {
+    position: absolute;
+    margin-top: 1%;
+    top: 0;
+    right: 0;
+    margin-right: 10%;
+}
+
+.log-download {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.log-upload {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.log-jitter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 1%;
+    margin-left: 10%;
+}
+
+.log-latency {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 1%;
+    margin-right: 10%;
 }
