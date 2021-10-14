@@ -67,6 +67,7 @@
     margin-top: 1%;
     margin-left: 10%;
     position: absolute;
+    color: lightgray;
 }
 
 .log-url {
@@ -77,11 +78,13 @@
     margin-right: 10%;
 }
 
+
 .log-download {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: #1f8de7;
 }
 
 .log-upload {
@@ -91,12 +94,17 @@
     transform: translate(-50%, -50%);
 }
 
+.log-upload > pre{
+    color: #bd71ff;
+}
+
 .log-jitter {
     position: absolute;
     bottom: 0;
     left: 0;
     margin-bottom: 1%;
     margin-left: 10%;
+    color: #e76f2e;
 }
 
 .log-latency {
@@ -105,6 +113,7 @@
     right: 0;
     margin-bottom: 1%;
     margin-right: 10%;
+    color: #f2485c;
 }
 
 @media (max-width: 250px), (max-width:580px) {
