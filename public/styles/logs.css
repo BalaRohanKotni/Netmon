@@ -20,13 +20,6 @@
     z-index: 10;
 }
 
-@media (max-width: 250px), (max-width:580px) {
-    .main {
-        width: 100vw;
-        height: calc(100vh - 5rem);
-        margin-left: 0;
-    }
-}
 
 .tabs {
     background-color: rgb(71, 69, 69);
@@ -112,4 +105,19 @@
     right: 0;
     margin-bottom: 1%;
     margin-right: 10%;
+}
+
+@media (max-width: 250px), (max-width:580px) {
+    .main {
+        width: 100vw;
+        height: calc(100vh - 5rem);
+        margin-left: 0;
+    }
+    .logs-ul, .tabs{
+        width: 100vw;
+    }
+
+    .logs-ul{
+        height: calc(100vh - 9rem);
+    }
 }
