@@ -49,7 +49,7 @@
 }
 
 .logs-ul {
-    height: calc(100vh - 5em);
+    height: 100vh;
     width: calc(100vw - 5rem);
     overflow-y: scroll;
     overflow-x: hidden;
