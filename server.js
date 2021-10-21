@@ -45,7 +45,7 @@ app.get('/graph', async (req, res) => {
 
 app.get('/alllogs', async (req, res) => {
     const results = await SpeedtestResult.find();
-    res.render('pages/allLogs', { speedtestResults: JSON.stringify(results) });
+    res.render('pages/allLogs', { speedtestResults: JSON.stringify(results.reverse()) });
 });
 
 app.get('/db', async (req, res,) => {
