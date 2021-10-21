@@ -26,6 +26,23 @@
 
     <main>
         <% let circumference=100 * 2 * Math.PI; %>
+        
+        <% let avgDownloadBandwidthDashOffset; %>
+        <% if(avgDownloadBandwidth > 100){avgDownloadBandwidthDashOffset = 100;console.log(avgDownloadBandwidthDashOffset); } else{%>
+        <% avgDownloadBandwidthDashOffset = avgDownloadBandwidth} %>
+
+        <% let avgUploadBandwidthDashOffset; %>
+        <% if(avgUploadBandwidth > 100) { avgUploadBandwidthDashOffset = 100} else{%>
+        <% avgUploadBandwidthDashOffset = avgUploadBandwidth;}%>
+
+        <% let avgLatencyDashOffset; %>
+        <% if(avgLatency > 100) { avgLatencyDashOffset = 100} else{%>
+        <% avgLatencyDashOffset = avgLatency;}%>
+
+        <% let avgJitterDashOffset; %>
+        <% if(avgJitter > 100) { avgJitterDashOffset = 100} else{%>
+        <% avgJitterDashOffset = avgJitter;}%>
+
 
         <div class="avgContainer">
 
@@ -41,10 +58,8 @@
                     stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                     " />
                         <circle class="progress" r="40%" cx="50%" cy="50%" style="stroke:#1fa8e7; stroke-dasharray:<%-parseInt(circumference)%>px;
-                                    stroke-dashoffset:<%-parseInt(circumference - ( avgDownloadBandwidth / 125) *
-                                    circumference) %>px
-                                    " />
-                        <text x="105" y="150" style="fill: white;"><%-avgDownloadBandwidth%></text>
+                                    stroke-dashoffset:<%-parseInt(circumference - ( avgDownloadBandwidthDashOffset / 125) * circumference) %>px" />
+                        <text x="50%" y="150" alignment-baseline="middle" text-anchor="middle" style="fill: white;"><%-avgDownloadBandwidth%></text>
                     </svg>
                 </div>
 
@@ -55,10 +70,10 @@
                                     stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                                     " />
                         <circle class="progress" r="40%" cx="50%" cy="50%" style="stroke:#bd71ff; stroke-dasharray:<%-parseInt(circumference)%>px;
-                                    stroke-dashoffset:<%-parseInt(circumference - ( avgUploadBandwidth / 125) *
+                                    stroke-dashoffset:<%-parseInt(circumference - ( avgUploadBandwidthDashOffset / 125) *
                                     circumference) %>px
                                     " />
-                        <text x="105" y="150" style="fill: white;"><%-avgUploadBandwidth%></text>
+                        <text x="50%" y="150" alignment-baseline="middle" text-anchor="middle" style="fill: white;"><%-avgUploadBandwidth%></text>
                     </svg>
                 </div>
 
@@ -69,10 +84,10 @@
                                     stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                                     " />
                         <circle class="progress" r="40%" cx="50%" cy="50%" style="stroke:#f2485c; stroke-dasharray:<%-parseInt(circumference)%>px;
-                                    stroke-dashoffset:<%-parseInt(circumference - ( avgLatency / 125) *
+                                    stroke-dashoffset:<%-parseInt(circumference - ( avgLatencyDashOffset / 125) *
                                     circumference) %>px
                                     " />
-                        <text x="105" y="150" style="fill: white;"><%-avgLatency%></text>
+                        <text x="50%" y="150" alignment-baseline="middle" text-anchor="middle" style="fill: white;"><%-avgLatency%></text>
                     </svg>
                 </div>
 
@@ -83,10 +98,10 @@
                                     stroke-dashoffset:<%-parseInt(circumference - ( 100 / 125) * circumference) %>px
                                     " />
                         <circle class="progress" r="40%" cx="50%" cy="50%" style="stroke:#e76f2e; stroke-dasharray:<%-parseInt(circumference)%>px;
-                                    stroke-dashoffset: <%-parseInt(circumference - ( avgJitter / 125) *
+                                    stroke-dashoffset: <%-parseInt(circumference - ( avgJitterDashOffset / 125) *
                                     circumference) %>px
                                     " />
-                        <text x="105" y="150" style="fill: white;"><%-avgJitter%></text>
+                        <text x="50%" y="150" alignment-baseline="middle" text-anchor="middle" style="fill: white;"><%-avgJitter%></text>
                     </svg>
                 </div>
             </div>
