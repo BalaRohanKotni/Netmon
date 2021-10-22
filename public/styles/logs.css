@@ -48,8 +48,21 @@
     background-color: rgb(54, 51, 51);
 }
 
+#sort-div{
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+#from-picker{
+    margin-left: 20px;
+    color: black;
+}
+
 .logs-ul {
-    height: 100vh;
+    height: 93vh;
     width: calc(100vw - 5rem);
     overflow-y: scroll;
     overflow-x: hidden;
@@ -61,6 +74,14 @@
     margin: 1rem;
     background-color: rgb(52, 52, 52);
     position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    
+}
+
+
+.log:first-child{
+    margin-top: 0.5rem;
 }
 
 .log-timestamp {

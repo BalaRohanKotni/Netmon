@@ -25,6 +25,10 @@
 
 
     <div class="main">
+        <div id="sort-div">
+            <label for="from-picker"> From:</label>
+            <input type="date" id="from-picker">
+        </div>
             <ul class="logs-ul">
                 <% results.forEach(result => { %>
                 <li>
@@ -49,10 +53,6 @@
     </div>
 
     <script src="/js/logs.js"></script>
-
-    <script>
-        document.getElementById("logs-tab").click();
-    </script>
 </body>
 
 </html>
