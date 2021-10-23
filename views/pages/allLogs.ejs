@@ -28,6 +28,9 @@
         <div id="sort-div">
             <label for="from-picker"> From:</label>
             <input type="date" id="from-picker">
+
+            <label for="to-picker"> To:</label>
+            <input type="date" id="to-picker">
         </div>
             <ul class="logs-ul">
                 <% results.forEach(result => { %>
@@ -38,7 +41,7 @@
                         </div>
                         <div class="log-download">Down↓: <%- result.downloadBandwidth.toFixed(2) %> Mbps</div>
                         <div class="log-upload">
-                            <pre>     Up↑:  <%- result.uploadBandwidth.toFixed(2) %> Mbps</pre>
+                             Up↑:  <%- result.uploadBandwidth.toFixed(2) %> Mbps
                         </div>
                         <div class="log-latency">Latency: <%- result.latency %> ms</div>
                         <div class="log-jitter">Jitter: <%- result.jitter %></div>

@@ -56,10 +56,12 @@
     margin-top: 1vh;
 }
 
-#from-picker{
-    margin-left: 20px;
+#from-picker, #to-picker{
+    margin:0  20px;
     color: black;
 }
+
+
 
 .logs-ul {
     height: 93vh;
@@ -113,9 +115,6 @@
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.log-upload > pre{
     color: #bd71ff;
 }
 
