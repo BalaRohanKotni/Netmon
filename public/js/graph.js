@@ -60,7 +60,6 @@ function oneDayBack(theDate) {
 }
 
 let currentTime = new Date();
-console.log(currentTime.toLocaleString());
 let oneDayBackDate = new Date(oneDayBack(currentTime));
 
 let labelsTime = [];
