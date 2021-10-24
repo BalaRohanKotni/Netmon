@@ -87,6 +87,19 @@ toDatePicker.addEventListener("change", function(event){
             ){
                 bigString += sortLOGSUL(currentDate, result);
             }
+            else{
+                if(
+                    currentDate.getMonth() - fromDate.getMonth() == 1 && 
+                    fromDate.getYear() <= currentDate.getYear() && (currentDate.getYear() <= toDate.getYear())
+                ){
+                bigString += sortLOGSUL(currentDate, result);
+                }
+                if(
+                    currentDate.getFullYear() - fromDate.getFullYear == 1
+                ){
+                bigString += sortLOGSUL(currentDate, result);
+                }
+            }
         });
         LOGSUL.innerHTML = bigString;
         if(LOGSUL.innerHTML===""){
