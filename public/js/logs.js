@@ -1,6 +1,7 @@
 const fromDatePicker = document.getElementById("from-picker");
 const toDatePicker = document.getElementById("to-picker");
 const LOGSUL = document.getElementsByClassName("logs-ul")[0];
+const SORTDIV = document.getElementById("sort-div");
 
 fromDatePicker.value = "";
 toDatePicker.value = moment().format("YYYY-MM-DD");
@@ -36,13 +37,15 @@ fromDatePicker.addEventListener('change', function(event){
         let selectedDate = new Date(fromDatePicker.value);
         LOGSUL.innerHTML = "<center><h1 style=\"margin-top: 10vh;\">Loading...</h1></center>";
         let bigString = "";
+        let count = 0;
         results.forEach(result => {
             let currentDate = new Date(result.createdAt);
             if(selectedDate.toDateString() == currentDate.toDateString()){
                 bigString+= sortLOGSUL(currentDate, result);
+                count++;
             }
         });
-        LOGSUL.innerHTML= bigString;
+        LOGSUL.innerHTML=`<center><h2>Total Logs: ${count}</h2></center>`+ bigString;
         if(LOGSUL.innerHTML===""){
             LOGSUL.innerHTML = "<center><h1 style=\"margin-top: 10vh;\">No Results</h1></center>";
         }
@@ -100,7 +103,7 @@ toDatePicker.addEventListener("change", function(event){
                 bigString += sortLOGSUL(currentDate, result);
                 }
             }
-        });
+        }); 
         LOGSUL.innerHTML = bigString;
         if(LOGSUL.innerHTML===""){
             LOGSUL.innerHTML = "<center><h1 style=\"margin-top: 10vh;\">No Results</h1></center>";
