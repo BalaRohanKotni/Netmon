@@ -40,6 +40,9 @@
                         <div class="log-timestamp">
                             <%- new Date(result.createdAt).toLocaleString('en', {month: "short",day: "2-digit", year: "numeric", hour: "numeric", minute: "numeric"}) %>
                         </div>
+                        <div class="log-isp">
+                            ISP : <%- result.isp%>
+                        </div>
                         <div class="log-download">Down↓: <%- result.downloadBandwidth.toFixed(2) %> Mbps</div>
                         <div class="log-upload">
                              Up↑:  <%- result.uploadBandwidth.toFixed(2) %> Mbps

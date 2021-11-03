@@ -26,7 +26,10 @@ function sortLOGSUL(currentDate, result){
     let jitter = result.jitter;
     jitter = `<div class="log-jitter">Jitter: ${jitter}</div>`
 
-    return `<li><div class="log">${dateTime+url+down+up+latency+jitter}</div></li>`
+    let isp = result.isp;
+    isp = `<div class="log-isp">ISP : ${isp}</div>`;
+
+    return `<li><div class="log">${dateTime+url+down+up+latency+jitter+isp}</div></li>`
 }
 
 fromDatePicker.addEventListener('change', function(event){

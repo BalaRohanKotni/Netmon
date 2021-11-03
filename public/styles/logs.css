@@ -93,6 +93,14 @@
     color: lightgray;
 }
 
+.log-isp {
+    margin-top: 2.75rem;
+    margin-left: 10%;
+    position: absolute;
+    color: lightgray;
+}
+
+
 .log-url {
     position: absolute;
     margin-top: 1%;
