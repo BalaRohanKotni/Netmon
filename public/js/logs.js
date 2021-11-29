@@ -2,9 +2,23 @@ const fromDatePicker = document.getElementById("from-picker");
 const toDatePicker = document.getElementById("to-picker");
 const LOGSUL = document.getElementsByClassName("logs-ul")[0];
 const SORTDIV = document.getElementById("sort-div");
+const ISPDROPDOWNBTN = document.getElementsByClassName("dropdownbtn")[0];
+const ISPDROPDOWNCONTENT = document.getElementsByClassName("dropdown-content")[0];
+
 
 fromDatePicker.value = "";
 toDatePicker.value = moment().format("YYYY-MM-DD");
+
+let isps = [];
+// add isps to list
+results.forEach(result => {
+    let currentISP = result.isp;
+    if(isps.indexOf(currentISP) === -1){
+        ISPDROPDOWNCONTENT.innerHTML += `<select>${currentISP}</select>`;
+        isps.push(currentISP);
+    }
+});
+
 
 
 function sortLOGSUL(currentDate, result){
