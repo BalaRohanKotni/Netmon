@@ -61,6 +61,27 @@
     color: black;
 }
 
+#isp-dropdown{
+    background-color: white;
+    height: 1.5em;
+    width: 4em;
+    display: flex;
+    justify-content: center;
+}
+
+#isp-dropdown > .dropdownbtn{
+    color: black;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.dropdown-content .dropdown:hover{
+    display: block;
+}
+.dropdown-content{
+    display: none;
+}
 
 
 .logs-ul {

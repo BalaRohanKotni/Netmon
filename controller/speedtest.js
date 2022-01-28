@@ -1,4 +1,3 @@
-const installSpeedTest = require("../helpers/install_speedtest");
 const { exec } = require("child_process")
 const fs = require("fs");
 const SpeedtestResult = require("../models/speedtest_result")
@@ -7,10 +6,6 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost:2002', { useUnifiedTopology: true, useNewUrlParser: true }, function () {
   console.log('Connected to DB');
 });
-
-if (!fs.existsSync("ookla/")) {
-  installSpeedTest.installOoklaSpeedTestCLI();
-}
 
 
 function runProcessSaveSpeedtest() {
@@ -39,7 +34,7 @@ function runProcessSaveSpeedtest() {
 
 
   console.log("executing");
-  exec("./ookla/speedtest -f json", function (err, data, getter) {
+  exec("speedtest -f json", function (err, data, getter) {
     if (err) {
       console.log("Error", err.message);
       return;
