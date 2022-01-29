@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "loggerStart": "node network_stats_logger.js",
-    "serverStart": "nodemon server.js"
+    "start": "node network_stats_logger.js & nodemon server.js"
   },
   "keywords": [],
   "author": "",
