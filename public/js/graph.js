@@ -19,7 +19,7 @@ const MONTHS = [
 let monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 if (new Date().getFullYear() % 4 == 0) {
-  monthDays = 29;
+  monthDays[1] = 29;
 }
 
 let latest50results = results.slice(-50).reverse();
@@ -72,35 +72,23 @@ results.forEach((result) => {
     new Date(result.createdAt).toLocaleDateString() ==
     oneDayBackDate.toLocaleDateString()
   ) {
-    if (
-      Number.parseInt(currentTime.getHours()) <=
-        Number.parseInt(new Date(result.createdAt).getHours()) &&
-      Number.parseInt(currentTime.getMinutes()) <=
-        Number.parseInt(new Date(result.createdAt).getMinutes())
-    ) {
+    
       // labelsTime.push((result.createdAt));
       labelsTime.push(new Date(result.createdAt).toLocaleTimeString());
       downloadData.push(result.downloadBandwidth);
       uploadData.push(result.uploadBandwidth);
       urls.push(result.resultURL);
-    }
+    
   }
   if (
     new Date(result.createdAt).toLocaleDateString() ==
     currentTime.toLocaleDateString()
   ) {
-    if (
-      Number.parseInt(currentTime.getHours()) >=
-        Number.parseInt(new Date(result.createdAt).getHours()) &&
-      Number.parseInt(currentTime.getMinutes()) >=
-        Number.parseInt(new Date(result.createdAt).getMinutes())
-    ) {
       // labelsTime.push(result.createdAt);
       labelsTime.push(new Date(result.createdAt).toLocaleTimeString());
       downloadData.push(result.downloadBandwidth);
       uploadData.push(result.uploadBandwidth);
       urls.push(result.resultURL);
-    }
   }
 });
 console.log(labelsTime.length);
