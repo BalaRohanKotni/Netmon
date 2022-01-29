@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node network_stats_logger.js & nodemon server.js"
+    "start": "mongod --port 2002 & node network_stats_logger.js & nodemon server.js"
   },
   "keywords": [],
   "author": "",
