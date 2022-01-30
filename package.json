@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "mongod --port 2002 & node network_stats_logger.js & nodemon server.js"
+    "loggerStart": "node network_stats_logger.js",
+    "serverStart": "nodemon server.js",
+    "start": "node network_stats_logger.js & node server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +15,7 @@
     "chart.js": "^3.5.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "mongoose": "^5.13.5"
+    "mongoose": "^6.1.8"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
