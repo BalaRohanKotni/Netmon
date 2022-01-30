@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 const runProcessSaveSpeedtest = require('./controller/speedtest')
 
-mongoDBPort = 2002
+mongoDBPort = 27017
 
-mongoose.connect('mongodb://localhost:2002', { useNewUrlParser: true }, function () {
+mongoose.connect(`mongodb://mongo:${mongoDBPort}`, { useNewUrlParser: true }, function () {
     console.log('connected to db');
 });
 

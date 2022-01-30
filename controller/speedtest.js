@@ -3,7 +3,7 @@ const fs = require("fs");
 const SpeedtestResult = require("../models/speedtest_result")
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:2002', { useUnifiedTopology: true, useNewUrlParser: true }, function () {
+mongoose.connect('mongodb://mongo:27017', { useUnifiedTopology: true, useNewUrlParser: true }, function () {
   console.log('Connected to DB');
 });
 
