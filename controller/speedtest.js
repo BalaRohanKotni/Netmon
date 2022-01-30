@@ -34,7 +34,7 @@ function runProcessSaveSpeedtest() {
 
 
   console.log("executing");
-  exec("speedtest -f json", function (err, data, getter) {
+  exec("speedtest -f json --accept-license", function (err, data, getter) {
     if (err) {
       console.log("Error", err.message);
       return;
