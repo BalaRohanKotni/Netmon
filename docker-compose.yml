@@ -1,0 +1,17 @@
+version: '20'
+
+services:
+  app:
+    container_name: netmon-mvp
+    restart: always
+    build: .
+    ports:
+      - '1819:1819'
+      #   ^host ^container
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
