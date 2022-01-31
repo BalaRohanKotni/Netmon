@@ -16,5 +16,5 @@ RUN mkdir -p /data/db
 
 COPY . .
 
-EXPOSE 1819
+EXPOSE 3000
 CMD [ "npm", "start" ]
