@@ -1,7 +1,8 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://mongo:27017', { useNewUrlParser: true, useUnifiedTopology: true }, function () {
+mongoose.connect(`${process.env.mongodb_uri}${process.env.mongodb_port}`, { useNewUrlParser: true, useUnifiedTopology: true }, function () {
     console.log('Connected to DB');
 });
 
@@ -53,4 +54,4 @@ app.get('/db', async (req, res,) => {
     res.json(results);
 });
 
-app.listen(1819)
+app.listen(3000)

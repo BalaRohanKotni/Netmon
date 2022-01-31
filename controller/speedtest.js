@@ -1,9 +1,10 @@
+require('dotenv').config()
 const { exec } = require("child_process")
 const fs = require("fs");
 const SpeedtestResult = require("../models/speedtest_result")
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://mongo:27017', { useUnifiedTopology: true, useNewUrlParser: true }, function () {
+mongoose.connect(`${process.env.mongodb_uri}${process.env.mongodb_port}`, { useUnifiedTopology: true, useNewUrlParser: true }, function () {
   console.log('Connected to DB');
 });
 
